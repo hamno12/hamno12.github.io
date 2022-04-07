@@ -16,8 +16,7 @@
 	<ul class="nav">
       <li class="nav-title">Pages</li>
 	  <li>
-	  	<!--<a class="nav-item" href="/">Articles</a>-->
-		  <a class="nav-item" href="/">JAVA</a>
+	  	<a class="nav-item" href="/">Articles</a>
 	  </li>
 	  {% assign pages_list = site.pages %}
 	  {% for node in pages_list %}
@@ -32,22 +31,6 @@
 	    {% endif %}
 	  {% endfor %}
 	</ul>
-	<li>
-		<a class="nav-item" href="/">baekjoon</a>
-	</li>
-	{% assign pages_list = site.pages %}
-	{% for node in pages_list %}
-	  {% if node.title != null %}
-		{% if node.layout == "page" %}
-		  <li>
-			  <a class="nav-item" href="{{ node.url }}">
-				  {{ node.title }}
-			  </a>
-		  </li>
-		{% endif %}
-	  {% endif %}
-	{% endfor %}
-  </ul>
 </div>
 
 <div class="sidebar-item sidebar-nav">
