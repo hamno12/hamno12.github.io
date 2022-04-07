@@ -1,7 +1,7 @@
 ---
-layout: BAEKJOON
+layout: baekjoon
 title: post-sample
-date: 2020-01-02 19:20:23 +0900
+date: 2020-01-03 19:20:23 +0900
 category: sample
 ---
 # post-sample
