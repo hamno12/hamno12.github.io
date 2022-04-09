@@ -1,8 +1,7 @@
 ---
 layout: post
-title: 단어의 개수
+title: 단어의 개수(BAEKJOON 1152번)
 date: 2022-04-09 23:11:23 +0900
-categories : BaekJoon 
 categories : JAVA
 ---
 #  단어의 개수
