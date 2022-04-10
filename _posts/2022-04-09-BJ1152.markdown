@@ -2,7 +2,7 @@
 layout: post
 title: BAEKJOON 1152
 date: 2022-04-09 23:11:23 +0900
-categories : JAVA 
+categories : BAEKJOON 
 ---
 ## 단어의 개수
 
