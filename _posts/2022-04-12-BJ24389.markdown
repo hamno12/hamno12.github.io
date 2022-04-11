@@ -1,10 +1,10 @@
 ---
 layout: post
-title: 소인수분해
+title: 2의 보수
 date: 2022-04-12 00:34:23 +0900
 categories : BAEKJOON 
 ---
-# 소인수분해
+# 2의 보수
 
 > https://www.acmicpc.net/problem/24389
 
