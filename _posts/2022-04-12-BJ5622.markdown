@@ -1,0 +1,46 @@
+---
+layout: post
+title: 다이얼
+date: 2022-04-12 00:27:23 +0900
+categories : BAEKJOON 
+---
+# 다이얼
+
+> https://www.acmicpc.net/problem/5622
+
+
+This is code
+```java
+import java.util.Scanner;
+
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner =new Scanner(System.in);
+        String first = scanner.nextLine();
+        int sum = 0;
+        char[] seccond=first.toCharArray();
+
+        for (int i = 0; i < seccond.length; i++) {
+            if (seccond[i] == 1 ) {
+                sum += 2;
+            }
+            else if (seccond[i] == 0){
+                sum += 11;
+            }
+            else if (seccond[i] < 83){
+                sum += (seccond[i] - 65) / 3 + 3;
+            }
+            else if (seccond[i] == 'Z'){
+                sum += 10;
+            }
+            else if (seccond[i] >= 83){
+                sum += (seccond[i] - 66) / 3 + 3;
+            }
+            
+        }
+        System.out.println(sum);
+    }
+}
+
+```

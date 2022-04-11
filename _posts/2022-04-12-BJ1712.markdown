@@ -1,0 +1,35 @@
+---
+layout: post
+title: 손익분기점
+date: 2022-04-12 00:15:23 +0900
+categories : BAEKJOON 
+---
+# 손익분기점
+
+> https://www.acmicpc.net/problem/1712
+
+
+This is code
+```java
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner =new Scanner(System.in);
+        int first = scanner.nextInt();
+        int seccond = scanner.nextInt();
+        int third = scanner.nextInt();
+        int result = 0;
+
+        if (third - seccond < 1){
+            result = -1;
+        }
+        else{
+            result = first / (third - seccond) + 1;
+        }
+        
+        System.out.println(result);
+    }
+}
+
+```

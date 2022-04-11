@@ -1,0 +1,37 @@
+---
+layout: post
+title: ACM 호텔
+date: 2022-04-12 00:27:23 +0900
+categories : BAEKJOON 
+---
+# ACM 호텔
+
+> https://www.acmicpc.net/problem/10250
+
+
+This is code
+```java
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner =new Scanner(System.in);
+        int T = scanner.nextInt();
+        double[][] data = new double[T][3];
+        int F = 0;
+
+        for (int i = 0; i < T; i++) {
+            data[i][0] = scanner.nextInt();
+            data[i][1] = scanner.nextInt();
+            data[i][2] = scanner.nextInt();
+            F = (int)Math.ceil(data[i][2]%data[i][0]);
+            if (F == 0){
+                F = (int)data[i][0];
+            }
+            System.out.println(F+String.format("%02d",(int)Math.ceil(data[i][2]/data[i][0])));
+        }
+    }
+}
+
+
+```

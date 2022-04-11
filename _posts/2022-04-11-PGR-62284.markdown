@@ -1,0 +1,18 @@
+---
+layout: post
+title: 우유와 요거트가 담긴 장바구니
+date: 2022-04-11 23:11:27 +0900
+categories : PROGRAMMERS 
+---
+# 우유와 요거트가 담긴 장바구니
+
+> https://programmers.co.kr/learn/courses/30/lessons/62284
+
+
+
+This is code
+```SQL
+SELECT DISTINCT CART_ID
+FROM CART_PRODUCTS
+WHERE NAME = 'MILK' AND CART_ID IN (SELECT CART_ID FROM CART_PRODUCTS WHERE NAME = 'YOGURT') ORDER BY CART_ID;
+```

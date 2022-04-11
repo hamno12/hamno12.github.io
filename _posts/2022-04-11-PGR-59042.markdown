@@ -1,0 +1,17 @@
+---
+layout: post
+title: 없어진 기록 찾기
+date: 2022-04-11 23:11:23 +0900
+categories : PROGRAMMERS 
+---
+# 없어진 기록 찾기
+
+> https://programmers.co.kr/learn/courses/30/lessons/59042
+
+
+This is code
+```SQL
+SELECT ANIMAL_ID,O.NAME
+FROM ANIMAL_OUTS O LEFT OUTER JOIN ANIMAL_INS I USING(ANIMAL_ID)
+WHERE I.NAME IS NULL AND O.NAME IS NOT NULL
+```

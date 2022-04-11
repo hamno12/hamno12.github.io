@@ -1,0 +1,70 @@
+---
+layout: post
+title: 큰 수 A+B
+date: 2022-04-12 00:30:23 +0900
+categories : BAEKJOON 
+---
+# 큰 수 A+B
+
+> https://www.acmicpc.net/problem/10757
+
+
+This is code
+```java
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner =new Scanner(System.in);
+        String str = scanner.nextLine();
+        String[] array = str.split(" ");
+
+        String  A = array[0];
+        String  B = array[1];
+
+
+        String C = "";
+        String reverse  = "";
+        int len = 0;
+
+        if (A.length() < B.length()){
+            len = A.length();
+            for (int i = 0; i < B.length() - len; i++) {
+                A = "0" + A;
+            }
+        }
+        else if(A.length() > B.length()){
+            len = B.length();
+            for (int i = 0; i < A.length() - len; i++) {
+                B = "0" + B;
+            }
+        }
+
+        char[] first = A.toCharArray();
+        char[] sec = B.toCharArray();
+
+        for (int i = A.length() - 1; i >= 0; i--) {
+            if (first[i] + sec[i] - 96 > 9){
+                C += (int)first[i] + (int)sec[i] - 106;
+                if (i == 0){
+                    C += 1;
+                }else {
+                    first[i-1] = (char)((int)first[i-1] + 1)  ;
+                }
+            }
+            else {
+                C +=(int)first[i] + (int)sec[i] - 96 ;
+            }
+        }
+
+        for (int i = C.length() - 1; i >= 0; i--) {
+            reverse = reverse + C.charAt(i);
+        }
+
+        System.out.println(reverse);
+
+    }
+}
+
+
+```

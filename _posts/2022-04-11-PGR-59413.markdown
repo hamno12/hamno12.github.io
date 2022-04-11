@@ -1,0 +1,25 @@
+---
+layout: post
+title: 입양 시각 구하기(2)
+date: 2022-04-11 23:11:31 +0900
+categories : PROGRAMMERS 
+---
+# 입양 시각 구하기(2)
+
+> https://programmers.co.kr/learn/courses/30/lessons/77487
+
+
+This is code
+```SQL
+SELECT B.HOUR , NVL(SUM(CNT),0) COUNT
+FROM
+    (SELECT TO_CHAR(DATETIME,'HH24') AS HOUR, COUNT(DATETIME) CNT
+    FROM ANIMAL_OUTS
+    GROUP BY TO_CHAR(DATETIME,'HH24')) A,
+    (SELECT '00' +  LEVEL - 1 HOUR
+    FROM DUAL
+    CONNECT BY LEVEL <= ('23') - ('00') + 1)B
+WHERE A.HOUR(+) = B.HOUR
+GROUP BY B.HOUR
+ORDER BY B.HOUR
+```

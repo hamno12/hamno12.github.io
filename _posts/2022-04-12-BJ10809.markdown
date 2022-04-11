@@ -1,0 +1,51 @@
+---
+layout: post
+title: 알파벳 찾기
+date: 2022-04-12 00:33:23 +0900
+categories : BAEKJOON 
+---
+# 알파벳 찾기
+
+> https://www.acmicpc.net/problem/10757
+
+
+This is code
+```C++
+#include <iostream>
+#include <string>
+using namespace std;
+
+class kjy{
+public:
+	string a;
+	kjy();
+};
+kjy::kjy(){
+	getline(cin, a);
+	static int b[26];
+	for(int i = 0; i < 26; i++)
+	 b[i]=  -1;
+
+	for (int i = 0; i <(int) a.length(); i++){
+		int j = 0;
+		for (j = 0; j < 26; j++){
+			if (a[i] == 97 + j&&b[j]==-1)
+				b[j] = i;
+			
+		
+			
+		}
+	}	
+	for (int i = 0; i < 26;i++)
+	cout << b[i] << " ";
+}
+
+int main()
+{
+
+	kjy kk;
+	return 0;
+}
+
+
+```

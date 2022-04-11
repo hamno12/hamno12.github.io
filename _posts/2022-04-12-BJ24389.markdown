@@ -1,0 +1,43 @@
+---
+layout: post
+title: 소인수분해
+date: 2022-04-12 00:34:23 +0900
+categories : BAEKJOON 
+---
+# 소인수분해
+
+> https://www.acmicpc.net/problem/24389
+
+
+This is code
+```java
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner =new Scanner(System.in);
+        int first = scanner.nextInt();
+
+        char[] seccond = Integer.toBinaryString(first).toCharArray();
+        String third = Integer.toBinaryString(first - 1);
+        
+        if (third.length() < seccond.length){
+            for (int i = 0; i < seccond.length - third.length(); i++) {
+                third = "0" + third;
+            }
+        }
+
+        int count = 32 - seccond.length;
+        char[] four = third.toCharArray();
+        for (int i =  four.length - 1; i >= 0 ; i--) {
+
+            if (seccond[i] == four[i]){
+                count ++ ;
+            }
+        }
+
+        System.out.println(count);
+    }
+}
+
+```
