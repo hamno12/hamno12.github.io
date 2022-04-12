@@ -6,18 +6,8 @@ categories : UNIVERSITY
 ---
 # KNN을 이용한 숫자인식 
 
-> KNN알고리즘이란
+> [KNN알고리즘](https://ko.wikipedia.org/wiki/K-%EC%B5%9C%EA%B7%BC%EC%A0%91_%EC%9D%B4%EC%9B%83_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
 
-![image](https://user-images.githubusercontent.com/43135312/162966883-99aa7661-a512-4a1f-b5c1-c471fd295c95.png)
-
-
-![image](https://user-images.githubusercontent.com/43135312/162967024-67ac0c4e-db1b-48f9-a633-a0ff2c739e5f.png)
-
-![image](https://user-images.githubusercontent.com/43135312/162967111-a74c93ca-7d9d-4e32-9095-a10dce5bf49a.png)
-
-![image](https://user-images.githubusercontent.com/43135312/162967165-b8c234fe-c26d-4ed7-970f-1814a2ddeb4f.png)
-
-![image](https://user-images.githubusercontent.com/43135312/162967233-74f5526b-05ad-4db5-88be-745356e512ed.png)
 
 
 
