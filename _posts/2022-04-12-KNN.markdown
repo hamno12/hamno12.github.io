@@ -4,14 +4,22 @@ title: KNN을 이용한 숫자인식
 date: 2022-04-12 21:40:23 +0900
 categories : UNIVERSITY 
 ---
-# KNN
+# KNN을 이용한 숫자인식 
 
-> KNN을 이용한 숫자인식 
+> KNN알고리즘이란
+
+![image](https://user-images.githubusercontent.com/43135312/162966883-99aa7661-a512-4a1f-b5c1-c471fd295c95.png)
+
+
+![image](https://user-images.githubusercontent.com/43135312/162967024-67ac0c4e-db1b-48f9-a633-a0ff2c739e5f.png)
+
+![image](https://user-images.githubusercontent.com/43135312/162967111-a74c93ca-7d9d-4e32-9095-a10dce5bf49a.png)
+
+![image](https://user-images.githubusercontent.com/43135312/162967165-b8c234fe-c26d-4ed7-970f-1814a2ddeb4f.png)
+
+![image](https://user-images.githubusercontent.com/43135312/162967233-74f5526b-05ad-4db5-88be-745356e512ed.png)
 
 
 
-This is code
-```
 [K-NN(easy).zip](https://github.com/ejjoo/jekyll-theme-monos/files/8472938/K-NN.easy.zip)
 
-```
