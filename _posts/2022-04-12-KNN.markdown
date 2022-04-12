@@ -1,0 +1,17 @@
+---
+layout: post
+title: KNN을 이용한 숫자인식
+date: 2022-04-12 21:40:23 +0900
+categories : UNIVERSITY 
+---
+# KNN
+
+> KNN을 이용한 숫자인식 
+
+
+
+This is code
+```
+[K-NN(easy).zip](https://github.com/ejjoo/jekyll-theme-monos/files/8472938/K-NN.easy.zip)
+
+```
