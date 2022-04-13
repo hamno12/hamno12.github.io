@@ -1,0 +1,20 @@
+---
+layout: post
+title: 보호소에서 중성화한 동물
+date: 2022-04-13 23:17:25 +0900
+categories : PROGRAMMERS 
+---
+# 보호소에서 중성화한 동물
+
+> https://programmers.co.kr/learn/courses/30/lessons/59045
+
+
+
+This is code
+```SQL
+SELECT I.ANIMAL_ID, I.ANIMAL_TYPE, I.NAME
+FROM ANIMAL_INS I JOIN ANIMAL_OUTS O ON I.ANIMAL_ID = O.ANIMAL_ID 
+WHERE I.SEX_UPON_INTAKE LIKE 'INTACT%' AND  REGEXP_LIKE (O.SEX_UPON_OUTCOME,'SPAYED|NEUTERED')
+ORDER BY I.ANIMAL_ID
+```
+

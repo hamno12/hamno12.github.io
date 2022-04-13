@@ -1,0 +1,185 @@
+---
+layout: post
+title: FUZZY C-Means
+date: 2022-04-13 23:13:23 +0900
+categories : UNIVERSITY 
+---
+# FUZZY C-Means
+
+> FUZZY C-Means : https://rfriend.tistory.com/230
+
+
+This is code
+```C#
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FCM
+{
+    class FCM {
+        private int Cluster;    //클러스터수
+        private int Max_Patten; //최대 패턴
+        private int node;       //입력노드
+        private double m;       //지수가중치
+        private double ess;     //전소속도와 현소속간의 차이
+        private double E;
+
+        private double up;      //중심벡터계산1
+        private double down;    //중심벡터계산2
+        private double distance;
+
+        private double[,] M;        //소속도 
+        private double[,] New_M;    //이전 소속도
+        private double[,] D;        //거리값
+        private double[,] U;        //무게 중심값
+        private int[,] data;
+
+
+        public void Test()
+        {
+            data = new int[4, 2] { { -1, -2 }, { -2, -1 }, { 1, 3 }, { 3, 2 } };
+            Cluster = 2;
+            node = data.GetLength(1);
+            Max_Patten = data.GetLength(0);
+            m = 2;
+            ess = 0;
+            up = down = distance = 0;
+            E = 100;
+            
+
+            M = new double[Cluster, Max_Patten];
+            New_M = new double[Cluster, Max_Patten];
+            D = new double[Cluster, Max_Patten];
+            U = new double[Cluster, node];
+         
+
+            Initialize(); //Step 1. 소속함수 초기화
+
+            do
+            {
+                calculation(); //Step 2. 클러스터 중심 벡터 계산
+                calculation_M(); //Step 3. 새로운 소속 함수 계산
+                //ess = check();
+                ess ++;
+            } while (ess < 6);
+
+            for (int i = 0; i < Cluster; i++) {
+                Console.Write("{0}번 클라스터 ", i + 1);
+                for (int j = 0; j < Max_Patten; j++)
+                {
+                    Console.Write("{0:0.0}  ", New_M[i, j]);
+                }
+                Console.WriteLine();            
+            }
+        }
+
+
+        private void Initialize()
+        { //초기 소속도 초기화
+            int i;
+            int nCount = 0;
+
+            for (i = 0; i < Max_Patten; i++)
+            {
+                New_M[nCount, i] = 1;
+                nCount++;
+
+                if (nCount > Cluster - 1)
+                {
+                    nCount = 0;
+                }
+            }
+        }
+
+        private void calculation()
+        {
+            for (int i = 0; i < Cluster; i++)
+            {
+                for (int j = 0; j < node; j++)
+                {
+                    up = down = 0;
+                    for (int k = 0; k < Max_Patten; k++)
+                    {
+                        up += Math.Pow(New_M[i, k], m) * data[k, j];
+                        down += Math.Pow(New_M[i, k], m);
+                    }
+                    U[i, j] = up / down;
+                }
+            }
+        }
+
+        private void calculation_M()
+        {
+            for (int y = 0; y < Cluster; y++)
+            {
+                for (int x = 0; x < Max_Patten; x++)
+                {
+                    D[y, x] = Calculate_Distance(y, x, node);
+                }
+            }
+
+            double temp = 0;
+
+            for (int i = 0; i < Cluster; i++)
+            {
+                for (int k = 0; k < Max_Patten; k++)
+                {
+                    M[i, k] = New_M[i, k];
+                    temp = 0.0;
+                    for (int j = 0; j < Cluster; j++)
+                    {
+                        temp += Math.Pow(D[i, k] / D[j, k], 2 / (m - 1));
+                    }
+                    New_M[i, k] = 1 / temp;
+                }
+            }
+        }
+
+        private double Calculate_Distance(int nCluster, int nPattern, int IN_Node)
+        {
+            for (int i = 0; i < IN_Node; i++)
+            {
+                distance += Math.Pow(data[nPattern, i] - U[nCluster, i], 2);
+            }
+            distance = Math.Sqrt(distance);
+
+            return distance;
+        }
+
+        private double check()
+        {
+
+            double pass = 0;
+            for (int i = 0; i < Cluster; i++)
+            {
+                for (int j = 0; j < Max_Patten; j++)
+                {
+                    pass += Math.Abs(New_M[i, j] - M[i, j]);
+                }
+            }
+            return pass;
+        }
+
+        public FCM()
+        {
+            Test();
+        }
+
+    }
+
+
+
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            FCM F = new FCM();
+        }
+    }
+}
+
+
+```
