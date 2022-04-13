@@ -6,7 +6,7 @@ categories : UNIVERSITY
 ---
 # KNN을 이용한 숫자인식 
 
-> [KNN알고리즘](https://ko.wikipedia.org/wiki/K-%EC%B5%9C%EA%B7%BC%EC%A0%91_%EC%9D%B4%EC%9B%83_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
+> k-최근접 이웃 알고리즘 : https://ko.wikipedia.org/wiki/K-%EC%B5%9C%EA%B7%BC%EC%A0%91_%EC%9D%B4%EC%9B%83_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98
 
 
 
