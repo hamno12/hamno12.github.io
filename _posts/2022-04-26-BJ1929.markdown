@@ -1,0 +1,45 @@
+---
+layout: post
+title: 소수 구하기
+date: 2022-04-12 00:34:23 +0900
+categories : BAEKJOON 
+---
+# 소수 구하기
+
+> https://www.acmicpc.net/problem/1929
+
+
+This is code
+```java
+import java.util.Scanner;
+
+public class BJ1929 {
+    public static void main(String[] args) {
+        Scanner scanner =new Scanner(System.in);
+        int N = scanner.nextInt();
+        int T = scanner.nextInt();
+        int [] array = new int[T-N + 1];
+        int k = 2;
+
+        for (int i = 0; i < array.length; i++) {
+            array[i] = N;
+            N++;
+        }
+
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 2; j <= Math.sqrt(T); j++) {
+                if (array[i] % j == 0 && array[i] != j){
+                    array[i] = 1;
+                }
+            }
+        }
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != 1){
+                System.out.println(array[i]);
+            }
+        }
+
+    }
+}
+
+```
