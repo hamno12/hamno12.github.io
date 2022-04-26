@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 소수 구하기
-date: 2022-04-12 00:34:23 +0900
+date: 2022-04-25 22:34:23 +0900
 categories : BAEKJOON 
 ---
 # 소수 구하기
