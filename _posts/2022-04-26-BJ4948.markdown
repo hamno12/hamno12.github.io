@@ -1,0 +1,53 @@
+---
+layout: post
+title: 베르트랑 공준
+date: 2022-04-26 23:13:23 +0900
+categories : BAEKJOON 
+---
+# 베르트랑 공준
+
+> https://www.acmicpc.net/problem/4948
+
+
+This is code
+```java
+import java.util.Scanner;
+
+public class BJ4948 {
+    public static void main(String[] args) {
+        Scanner scanner =new Scanner(System.in);
+        int N = 1;
+        int [] array = new int[123456 * 2];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = i+1;
+        }
+
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 2; j <= Math.sqrt(array.length); j++) {
+                if (array[i] % j == 0 && array[i] != j){
+                    array[i] = 1;
+                }
+            }
+        }
+
+        while (N != 0){
+            N = scanner.nextInt();
+            int count = 0;
+            int T = 2 * N;
+            if (N == 0){
+                break;
+            }
+
+
+            for (int i = N; i < T; i++) {
+                if (array[i] != 1){
+                    count ++;
+                }
+            }
+            System.out.println(count);
+        }
+    }
+}
+
+
+```
