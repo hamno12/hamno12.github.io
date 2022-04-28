@@ -1,0 +1,48 @@
+---
+layout: post
+title: 골드바흐의 추측
+date: 2022-04-26 23:13:23 +0900
+categories : BAEKJOON 
+---
+# 골드바흐의 추측
+
+> https://www.acmicpc.net/problem/9020
+
+
+This is code
+```java
+import java.util.Scanner;
+
+public class BJ9020 {
+    public static void main(String[] args) {
+        Scanner scanner =new Scanner(System.in);
+        int C = scanner.nextInt();
+        int N;
+        int [] array = new int[10000 * 2];
+
+        for (int i = 0; i < array.length; i++) {
+            array[i] = i;
+            for (int j = 2; j <= Math.sqrt(array.length); j++) {
+                if (array[i] % j == 0 && array[i] != j){
+                    array[i] = 1;
+                }
+            }
+        }
+
+        for (int i = 0; i < C; i++) {
+            N = scanner.nextInt();
+
+            int T = N / 2;
+
+            for (int j = T; j < N; j++) {
+                if (array[j] != 1 && array[N - j] != 1 ){
+                    System.out.println(array[N - j] + " " + array[j]);
+                    break;
+                }
+            }
+        }
+    }
+}
+
+
+```
