@@ -1,0 +1,48 @@
+---
+layout: post
+title: 직사각형에서 탈출
+date: 2022-05-01 20:39:23 +0900
+categories : BAEKJOON 
+---
+# 직사각형에서 탈출
+
+> https://www.acmicpc.net/problem/1085
+
+
+This is code
+```java
+import java.util.Scanner;
+
+public class BJ1085 {
+    public static void main(String[] args) {
+        Scanner scanner =new Scanner(System.in);
+        int x = scanner.nextInt();
+        int y = scanner.nextInt();
+        int w = scanner.nextInt();
+        int h = scanner.nextInt();
+
+        int resultX = 0;
+        int resultY = 0;
+
+        if (w  / 2 >= x){
+            resultX = x;
+        }else {
+            resultX = w - x;
+        }
+        if (h  / 2 >= y){
+            resultY = y;
+        }else {
+            resultY = h- y;
+        }
+
+        if (resultX > resultY){
+            System.out.println(resultY);
+        }
+        else {
+            System.out.println(resultX);
+        }
+    }
+}
+
+
+```
