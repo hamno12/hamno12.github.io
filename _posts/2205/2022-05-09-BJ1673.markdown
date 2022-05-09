@@ -1,0 +1,45 @@
+---
+layout: post
+title: 치킨 쿠폰
+date: 2022-05-09 23:18:23 +0900
+categories : BAEKJOON 
+---
+# 치킨 쿠폰
+
+> https://www.acmicpc.net/problem/1673
+
+
+This is code
+```java
+import java.util.Scanner;
+
+public class BJ1673 {
+    static int sum = 0;
+    public static void main(String[] args) {
+        Scanner scanner =new Scanner(System.in);
+        int N = 0;
+        int K = 0;
+
+
+        while (scanner.hasNextInt()){
+            N = scanner.nextInt();
+            K = scanner.nextInt();
+            if (K < 1 || N < 1 ){
+                break;
+            }
+            sum = N;
+            System.out.println(coupon(N , K));
+        }
+    }
+
+    static int coupon(int N, int K){
+        if(N < K) {
+            return sum;
+        }
+        sum += N / K;
+        return coupon(N / K + N % K, K);
+    }
+}
+
+
+```
