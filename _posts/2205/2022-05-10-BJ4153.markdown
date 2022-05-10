@@ -1,0 +1,45 @@
+---
+layout: post
+title: 직각삼각형
+date: 2022-05-10 22:52:23 +0900
+categories : BAEKJOON 
+---
+# 직각삼각형
+
+> https://www.acmicpc.net/problem/4153
+
+
+This is code
+```java
+import java.util.Scanner;
+
+public class BJ4153 {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        while(true) {
+            int x = sc.nextInt();
+            int y = sc.nextInt();
+            int z = sc.nextInt();
+
+            if (x == 0 && y == 0 && z ==0) {
+                break;
+            }
+
+            if (x*x + y * y == z *z || z*z + y * y == x *x || x*x + z * z == y *y) {
+
+                System.out.println("right");
+            }
+            else {
+                System.out.println("wrong");
+            }
+        }
+
+
+    }
+}
+
+
+
+```

@@ -1,0 +1,33 @@
+---
+layout: post
+title: 택시 기하학
+date: 2022-05-10 22:49:23 +0900
+categories : BAEKJOON 
+---
+# 택시 기하학
+
+> https://www.acmicpc.net/problem/3053
+
+
+This is code
+```java
+import java.util.Scanner;
+
+public class BJ3053 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int x = sc.nextInt();
+
+        double U = Math.PI * Math.pow(x, 2);
+        double T = Math.pow(Math.sqrt(2) * x ,2);
+
+        System.out.println(String.format("%5f", U));
+        System.out.println(String.format("%5f", T));
+
+    }
+}
+
+
+
+```
