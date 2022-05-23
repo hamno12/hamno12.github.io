@@ -1,0 +1,46 @@
+---
+layout: post
+title: 영화감독 숌   
+date: 2022-05-23 23:25:23 +0900
+categories : BAEKJOON 
+---
+# 영화감독 숌  
+
+> https://www.acmicpc.net/problem/1436
+
+
+This is code
+```java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int N = scanner.nextInt();
+        int cnt = 0;
+        int num = 666;
+        int k = 0;
+        String x = "";
+
+        while (true) {
+            k = 0;
+            x = Integer.toString(num);
+            for (int i = (int) Math.log10(num); i > 1; i--) {
+
+                if (x.charAt(i) == '6' && x.charAt(i - 1) == '6' && x.charAt(i - 2) == '6') {
+                    cnt++;
+                    break;
+                }
+            }
+
+            if (cnt == N) {
+                System.out.println(num);
+                break;
+            }
+            num++;
+        }
+
+    }
+}
+
+```

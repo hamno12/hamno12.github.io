@@ -1,0 +1,128 @@
+---
+layout: post
+title: 블록게임
+date: 2022-05-23 23:15:25 +0900
+categories : PROGRAMMERS 
+---
+# 블록게임
+
+> https://programmers.co.kr/learn/courses/30/lessons/42894
+
+
+
+This is code
+```java
+class Solution {
+    
+    boolean chkBoard(int[][] board ,int a, int j) {
+		
+		for (int i = 0; i < a; i++) {
+			if (board[i][j] != 0) {
+				return false;
+			}
+		}
+		
+		return true;
+	}
+    
+    public int solution(int[][] board) {
+       	int cnt = 0;
+		int set = 0;
+		for (int i = 0; i < board.length - 1;  i++) {
+			for (int j = 0; j < board[0].length; j++) {
+				if (board[i][j] != 0) {
+					set = board[i][j];
+					
+					if (j + 2 < board[0].length) {
+						/* 
+						 * 1
+						 * 111
+						 *  */
+						if (set == board[i + 1][j] && set == board[i + 1][j + 1] && set == board[i + 1][j + 2]
+								&& chkBoard(board, i + 1,j + 1) && chkBoard(board, i + 1,j + 2)) {
+							board[i][j] = 0;
+							board[i + 1][j] = 0;
+							board[i + 1][j + 1] = 0;
+							board[i + 1][j + 2] = 0;
+							cnt ++;
+							j = -1;
+							continue;
+						}	
+					}
+					if( i + 2 < board.length) {
+						/* 
+						 *  1
+						 *  1
+						 * 11
+						 *  */
+						if (j -1 >=0) {
+							if (set == board[i + 1][j] && set == board[i + 2][j] && set == board[i + 2][j - 1]
+									 && chkBoard(board, i + 2,j - 1)) {
+								board[i][j] = 0;
+								board[i + 1][j] = 0;
+								board[i + 2][j] = 0;
+								board[i + 2][j - 1] = 0;
+								cnt ++;
+								j = -1;
+								continue;
+							}	
+						}
+						/* 
+						 * 1
+						 * 1
+						 * 11
+						 *  */
+						 if( j + 1 < board[0].length) {
+							if (set == board[i + 1][j] && set == board[i + 2][j] && set == board[i + 2][j + 1]
+								 && chkBoard(board, i + 2,j + 1) ) {
+								board[i][j] = 0;
+								board[i + 1][j] = 0;
+								board[i + 2][j] = 0;
+								board[i + 2][j + 1] = 0;
+								cnt ++;
+								j = -1;
+								continue;
+							}
+						}
+					}
+				   if(j -2 >= 0) {
+						/* 
+						 *   1
+						 * 111
+						 *  */
+						if (set == board[i + 1][j] && set == board[i + 1][j -1] && set == board[i + 1][j - 2]
+								&& chkBoard(board, i + 1,j - 1)  && chkBoard(board, i + 1,j - 2) ) {
+							board[i][j] = 0;
+							board[i + 1][j] = 0;
+							board[i + 1][j - 1] = 0;
+							board[i + 1][j - 2] = 0;
+							cnt ++;
+							j = -1;
+							continue;
+						}
+					}
+					if(j - 1 >= 0 &&  j + 1 < board[0].length) {
+						/* 
+						 *  1
+						 * 111
+						 *  */
+						if (set == board[i + 1][j] && set == board[i + 1][j -1] && set == board[i + 1][j + 1]
+								&& chkBoard(board, i + 1,j - 1)  && chkBoard(board, i + 1,j + 1)) {
+							board[i][j] = 0;
+							board[i + 1][j] = 0;
+							board[i + 1][j - 1] = 0;
+							board[i + 1][j + 1] = 0;
+							cnt ++;
+							j = -1;
+							continue;
+						}
+					}
+					
+				}
+			}
+		}
+        return cnt;
+    }
+}
+```
+

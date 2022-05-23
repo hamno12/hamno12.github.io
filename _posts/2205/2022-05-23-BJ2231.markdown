@@ -1,0 +1,41 @@
+---
+layout: post
+title: 분해합  
+date: 2022-05-23 23:18:23 +0900
+categories : BAEKJOON 
+---
+# 분해합  
+
+> https://www.acmicpc.net/problem/2231
+
+
+This is code
+```java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int N = scanner.nextInt();
+        int sum = 0;
+        int k = 0;
+        for (int i = N/10; i < N; i++) {
+            sum = i;
+            k = i;
+            for (int j = (int) Math.log10(i)  ; j >= 0; j--) {
+                sum += (int)(k / Math.pow(10, j));
+                k -= (int)(k / Math.pow(10, j))* Math.pow(10, j);
+            }
+            if (sum == N) {
+                System.out.println(i);
+                break;
+            } 
+        }
+        if (sum != N) {
+            System.out.println(0);
+        } 
+        
+    }
+}
+
+```

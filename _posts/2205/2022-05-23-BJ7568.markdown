@@ -1,0 +1,42 @@
+---
+layout: post
+title: 덩치   
+date: 2022-05-23 23:20:23 +0900
+categories : BAEKJOON 
+---
+# 덩치   
+
+> https://www.acmicpc.net/problem/7568
+
+
+This is code
+```java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int N = scanner.nextInt();
+        int k = 1;
+        int [][] ary = new int [N][2];
+
+        for (int i = 0; i < N; i++) {
+            ary[i][0] = scanner.nextInt();
+            ary[i][1] = scanner.nextInt();
+        }
+
+        for (int i = 0; i < N; i++) {
+            k = 1;
+            for (int j = 0; j < N; j++) {
+                if (ary[i][0] < ary[j][0] && ary[i][1] < ary[j][1] ) {
+                    k ++;                    
+                }                
+            }
+            System.out.print(k + " ");
+        }        
+    }
+}
+
+
+
+```
