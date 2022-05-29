@@ -1,0 +1,40 @@
+---
+layout: post
+title: Hashing   
+date: 2022-05-29 22:43:23 +0900
+categories : BAEKJOON 
+---
+# Hashing    
+
+> https://www.acmicpc.net/problem/15289
+
+
+This is code
+```java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int L = scanner.nextInt();
+        String str = scanner.next();
+        char[] ary = str.toCharArray();
+        long sum = 0;
+        long num = 1;
+        int M = 1234567891;
+
+        for (int i = 0; i < ary.length; i++) {
+            num = 1;
+            for (int j = 0; j < i; j++) {
+                num = (num % M * 31 % M) % M;
+            }
+            sum = ((sum % M) + ((ary[i] - 96) % M * num % M) % M) % M;
+        }
+
+        System.out.println(sum);
+
+    }
+}
+
+
+```
