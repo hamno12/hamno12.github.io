@@ -1,0 +1,46 @@
+---
+layout: post
+title: 팰린드롬수  
+date: 2022-08-14 00:26:23 +0900
+categories : BAEKJOON 
+---
+# 팰린드롬수    
+
+> https://www.acmicpc.net/problem/1259
+
+
+This is code
+```java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String str = "";
+        boolean f = true;
+        while (scanner.hasNext()) {
+            str = scanner.next();
+            f = true;
+            if (str.equals("0")) {
+                break;
+            }
+
+            for (int i = 0; i < str.length(); i++) {
+                if (str.charAt(i) != str.charAt(str.length() - 1 - i)) {
+                    f = false;
+                }
+            }
+
+            if (f) {
+                System.out.println("yes");
+            } else {
+                System.out.println("no");
+            }
+        }
+
+    }
+}
+
+
+```

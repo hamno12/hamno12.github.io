@@ -1,0 +1,56 @@
+---
+layout: post
+title: 단어 공부 
+date: 2022-08-14 00:25:23 +0900
+categories : BAEKJOON 
+---
+# 단어 공부    
+
+> https://www.acmicpc.net/problem/1157
+
+
+This is code
+```java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String str = scanner.next();
+        int[] ary = new int[26];
+
+        int num = 0;
+        int max = 0;
+        int maxCnt = 0;
+        int N = 0;
+
+        // a 97 A 65
+        for (int i = 0; i < 26; i++) {
+            num = 0;
+            for (int j = 0; j < str.length(); j++) {
+                if (i == str.charAt(j) - 65 || i == str.charAt(j) - 97) {
+                    num++;
+                }
+            }
+            ary[i] = num;
+            if (max < num) {
+                max = num;
+                maxCnt = 0;
+                N = i;
+            } else if (max == num) {
+                maxCnt++;
+            }
+        }
+
+        if (maxCnt == 0) {
+            System.out.println((char) (N + 65));
+        } else {
+            System.out.println("?");
+        }
+
+    }
+}
+
+
+```

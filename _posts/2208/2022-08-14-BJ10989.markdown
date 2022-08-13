@@ -1,0 +1,49 @@
+---
+layout: post
+title: 수 정렬하기 3 
+date: 2022-08-14 00:30:23 +0900
+categories : BAEKJOON 
+---
+# 수 정렬하기 3 
+
+> https://www.acmicpc.net/problem/10989
+
+
+This is code
+```java
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.*;
+
+public class Main {
+
+    private static int[] tmp;
+
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        int N = Integer.parseInt(br.readLine());
+        int[] ary = new int[10001];
+        int num = 0 ;
+
+        for (int i = 0; i < N; i++) {
+            num = Integer.parseInt(br.readLine());
+            ary[num] ++;
+        }
+
+        for (int i = 0; i < ary.length; i++) {
+            for (int j = ary[i]; j > 0 ; j--) {
+                bw.write(i + "\n");
+            }            
+        }
+        bw.flush();
+        bw.close();
+    }
+}
+
+```

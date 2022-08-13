@@ -1,0 +1,46 @@
+---
+layout: post
+title: 이항 계수 1 
+date: 2022-08-14 00:36:23 +0900
+categories : BAEKJOON 
+---
+# 이항 계수 1   
+
+> https://www.acmicpc.net/problem/11050
+
+
+This is code
+```java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int X = scanner.nextInt();
+        int Y = scanner.nextInt();
+        
+        int XX = 1;
+        int YY = 1;
+        int XY = 1;
+
+        
+        for (int i = 2; i <= X; i++) {
+
+            XX = XX * i;
+
+            if(Y >= i){
+                YY = YY * i;
+            }
+            if(X - Y >= i){
+                XY = XY * i;
+            }
+        }
+              
+        System.out.println(XX / (YY * XY));
+
+    }
+}
+
+
+```

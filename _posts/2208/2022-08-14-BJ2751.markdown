@@ -1,0 +1,77 @@
+---
+layout: post
+title: 수 정렬하기 2
+date: 2022-08-14 00:28:23 +0900
+categories : BAEKJOON 
+---
+# 수 정렬하기 2 
+
+> https://www.acmicpc.net/problem/2751
+
+
+This is code
+```java
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.*;
+
+public class Main {
+
+    private static int[] tmp;
+
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        int N = Integer.parseInt(br.readLine());
+        int[] ary = new int[N];
+
+        for (int i = 0; i < N; i++) {
+            ary[i] = Integer.parseInt(br.readLine());
+        }
+
+        Array(ary);
+
+        for (int i = 0; i < ary.length; i++) {
+            bw.write(ary[i] + "\n");
+        }
+        bw.flush();
+        bw.close();
+    }
+
+    public static void Array(int[] src) {
+        tmp = new int[src.length];
+        mergeSort(src, 0, src.length - 1);
+    }
+
+    public static void mergeSort(int[] ary, int left, int right) {
+
+        if (left < right) {
+            int mid = (left + right) / 2;
+            mergeSort(ary, left, mid);
+            mergeSort(ary, mid + 1, right);
+
+            int p = left;
+            int q = mid + 1;
+            int idx = p;
+
+            while (p <= mid || q <= right) {
+                if (q > right || (p <= mid && ary[p] < ary[q])) {
+                    tmp[idx++] = ary[p++];
+                } else {
+                    tmp[idx++] = ary[q++];
+                }
+            }
+
+            for (int i = left; i <= right; i++) {
+                ary[i] = tmp[i];
+            }
+        }
+    }
+}
+
+```

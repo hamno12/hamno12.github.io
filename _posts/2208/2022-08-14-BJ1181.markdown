@@ -1,0 +1,85 @@
+---
+layout: post
+title: 단어 정렬
+date: 2022-08-14 00:30:23 +0900
+categories : BAEKJOON 
+---
+# 단어 정렬   
+
+> https://www.acmicpc.net/problem/1181
+
+
+This is code
+```java
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.*;
+
+public class Main {
+
+    private static String[] tmp;
+
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        int N = Integer.parseInt(br.readLine());
+        String[] ary = new String[N];
+
+        for (int i = 0; i < N; i++) {
+            ary[i] = br.readLine();
+        }
+        Array(ary);
+        bw.write(ary[0] + "\n");
+        for (int i = 1; i < ary.length; i++) {
+            if (ary[i].equals(ary[i - 1]) == false) {
+                bw.write(ary[i] + "\n");
+            }
+        }
+
+        bw.flush();
+        bw.close();
+    }
+
+    public static void Array(String[] ary) {
+        tmp = new String[ary.length];
+        mergeSort(ary, 0, ary.length - 1);
+    }
+
+    public static void mergeSort(String[] ary, int left, int right) {
+
+        if (left < right) {
+            int mid = (left + right) / 2;
+            mergeSort(ary, left, mid);
+            mergeSort(ary, mid + 1, right);
+
+            int i = left;
+            int j = mid + 1;
+            int idx = i;
+
+            while (i <= mid || j <= right) {
+                if (j > right || (i <= mid && ary[i].length() < ary[j].length())) {
+                    tmp[idx++] = ary[i++];
+                } else if (j > right || (i <= mid && ary[i].length() == ary[j].length())) {
+                    if (ary[i].compareTo(ary[j]) < 0) {
+                        tmp[idx++] = ary[i++];
+                    } else {
+                        tmp[idx++] = ary[j++];
+                    }
+                } else {
+                    tmp[idx++] = ary[j++];
+                }
+            }
+
+            for (int x = left; x <= right; x++) {
+                ary[x] = tmp[x];
+            }
+        }
+    }
+}
+
+```
