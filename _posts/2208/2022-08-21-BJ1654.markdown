@@ -1,0 +1,65 @@
+---
+layout: post
+title: 랜선 자르기
+date: 2022-08-14 00:31:23 +0900
+categories : BAEKJOON 
+---
+# 랜선 자르기 
+
+> https://www.acmicpc.net/problem/1654
+
+
+This is code
+```java
+
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws IOException {
+
+        Scanner sc = new Scanner(System.in);
+
+        int N = sc.nextInt();
+        int K = sc.nextInt();
+        int[] ary = new int[N];
+
+        for (int i = 0; i < ary.length; i++) {
+            ary[i] = sc.nextInt();
+        }
+
+        Arrays.sort(ary);
+
+        System.out.println(binarySearch(ary, K));
+
+    }
+
+    private static long binarySearch(int[] src, int target) {
+        long left = 1;
+        long right = src[src.length - 1];
+        long mid = 0;
+        long sum = 0;
+        long result = 0;
+
+        while (left <= right) {
+            mid = (right + left) / 2;
+            sum = 0;
+            for (int i = 0; i < src.length; i++) {
+                sum += (int)(src[i] / mid);
+            }
+            if (sum < target) {
+                right = mid - 1;
+                result = right;
+            } else {
+                left = mid + 1;
+                result = mid;
+            }
+
+        }
+
+        return result;
+    }
+
+}
+
+```
