@@ -39,7 +39,7 @@ public class Main {
     public static void mergeSort(int[] src, int left, int right) {
 
         if (left < right) {
-            int mid = (left+right) / 2;
+            int mid = left + (right - left) / 2;
             mergeSort(src, left, mid);
             mergeSort(src, mid+1, right);
 
