@@ -2,7 +2,7 @@
 layout: post
 title: 마인크래프트 
 date: 2022-08-22 23:45:23 +0900
-categories : BAEKJOON 
+categories : BAEKJOON   2208
 ---
 # 마인크래프트 
 
