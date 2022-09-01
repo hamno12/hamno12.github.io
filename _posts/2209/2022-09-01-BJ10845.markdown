@@ -1,0 +1,82 @@
+---
+layout: post
+title: 큐
+date: 2022-09-01 23:25:23 +0900
+categories : BAEKJOON 
+---
+# 큐    
+
+> https://www.acmicpc.net/problem/10845
+
+
+This is code
+```java
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.*;
+
+public class Main {
+
+
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int N = Integer.parseInt(br.readLine());
+        String str ;
+        String tmp;
+        int X ;
+        int last = 0;
+
+        Queue que = new LinkedList<>();
+
+        for (int i = 0; i < N; i++) {
+            tmp = br.readLine();
+            str = tmp.split(" ")[0];
+            if ("push".equals(str)) {
+                X = Integer.parseInt(tmp.split(" ")[1]);
+                last = X;
+                que.offer(X);
+            }else if ("pop".equals(str)) {
+                if (que.isEmpty()) {
+                    System.out.println("-1");
+                }else{
+                    System.out.println(que.poll());                    
+                }                
+            }else if ("size".equals(str)) {
+                System.out.println(que.size());                
+            }else if ("empty".equals(str)) {
+                if (que.isEmpty()) {
+                    System.out.println("1");
+                }else{
+                    System.out.println("0");
+                } 
+            }else if ("front".equals(str)) {
+                if (que.isEmpty()) {
+                    System.out.println("-1");
+                }else{
+                    System.out.println(que.peek());
+                }  
+            }else{
+                if (que.isEmpty()) {
+                    System.out.println("-1");
+                }else{
+                    System.out.println(last);
+                }  
+            }
+        }
+       
+
+
+        
+
+
+    }
+
+}
+
+
+```
