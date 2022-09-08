@@ -1,0 +1,73 @@
+---
+layout: post
+title: 집합 
+date: 2022-09-08 19:01:23 +0900
+categories : BAEKJOON 
+---
+# 집합 
+
+> https://www.acmicpc.net/problem/11723
+
+
+
+
+This is code
+```java
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.lang.reflect.Array;
+import java.util.*;
+
+public class Main {
+
+
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        int N = Integer.parseInt(br.readLine());
+        int[] ary = new int[20];
+        String str;
+        String tmp;
+        for (int i = 0; i < N; i++) {
+            tmp = br.readLine();
+            str = tmp.split(" ")[0];
+            if("add".equals(str)){
+                ary[Integer.parseInt(tmp.split(" ")[1]) - 1] = 1;
+            }else if("remove".equals(str)){
+                ary[Integer.parseInt(tmp.split(" ")[1]) - 1] = 0;
+            }else if("check".equals(str)){
+                bw.write(String.valueOf(ary[Integer.parseInt(tmp.split(" ")[1]) - 1]));
+                bw.newLine();
+            }else if("toggle".equals(str)){
+                if (ary[Integer.parseInt(tmp.split(" ")[1]) - 1] == 1){
+                    ary[Integer.parseInt(tmp.split(" ")[1]) - 1] = 0;
+                }else {
+                    ary[Integer.parseInt(tmp.split(" ")[1]) - 1] = 1;
+                }
+            }else if("all".equals(str)){
+                for (int j = 0; j < ary.length; j++) {
+                    ary[j] = 1;
+                }
+            }else if("empty".equals(str)){
+                for (int j = 0; j < ary.length; j++) {
+                    ary[j] = 0;
+                }
+            }
+        }
+
+
+
+
+
+        bw.flush();
+        bw.close();
+
+    }
+}
+
+```

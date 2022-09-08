@@ -1,0 +1,65 @@
+---
+layout: post
+title: 팩토리얼 0의 개수
+date: 2022-09-08 18:59:23 +0900
+categories : BAEKJOON 
+---
+# 팩토리얼 0의 개수
+
+> https://www.acmicpc.net/problem/1676
+
+
+팩토리얼의 경우 N이 조금만 높아도 범위를 멋어나는 것을<br>
+생각하지 못하고 계산 후 10으로 나눠서 0의 개수를 찾을려고하니 <br>
+당연히 틀렸다. 10을 만들기 위해서는 2 와 5가 필요한데<br>
+팩토리얼 특성상 1 , 2, 3, 4, 5 ... 10 으로 5가 있으면 무조건 2를 포함하고 있어<br>
+5의 지수가 몇개인지를 구하여 정답을 맞추었다. 
+
+
+
+This is code
+```java
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.lang.reflect.Array;
+import java.util.*;
+
+public class Main {
+
+
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        int N = Integer.parseInt(br.readLine());
+        int cnt = 0;
+        int F = 0;
+
+        if (N < 5){
+            bw.write("0");
+        }else {
+            for (int i = 5; i <= N; i++) {
+                F = i;
+                while(F >= 5){
+                    if (F % 5 == 0){
+                        cnt++;
+                        F /= 5;
+                    }else {
+                        break;
+                    }
+                }
+            }
+            bw.write(String.valueOf(cnt));
+        }
+
+        bw.flush();
+        bw.close();
+
+    }
+}
+
+```

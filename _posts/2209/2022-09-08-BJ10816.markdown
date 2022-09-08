@@ -1,0 +1,128 @@
+---
+layout: post
+title: 숫자 카드 2
+date: 2022-09-08 18:41:23 +0900
+categories : BAEKJOON 
+---
+# 숫자 카드 2
+
+> https://www.acmicpc.net/problem/10816
+
+이진 탐색으로 찾은 후 반복문을 통하여 같은 수를 찾을려 하였으나 시간초과 나왔다. <br>
+처음에는 System.out.print로 출력을 하여 걸리는 것인가 생각을 하였지만 <br>
+시간초과가 나와서 찾아보다가 upperBound , lowerBound 개념을 알게 되었다. <br>
+이진 탐색이랑 비슷한 개념이다.
+
+upperBound : KEY 보다 큰 값이 제일 처음 나온 값
+lowerBound : KEY 보다 작은 값이 제일 처음 나온 값
+
+This is code
+```java
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.*;
+import java.io.IOException;
+
+public class Main {
+
+    static int[] result;
+
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out)); 
+
+        int N = Integer.parseInt(br.readLine());
+        int[] ary = new int[N];
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        for (int i = 0; i < N; i++) {
+            ary[i] = Integer.parseInt(st.nextToken());
+        }
+
+        int M = Integer.parseInt(br.readLine());
+        st = new StringTokenizer(br.readLine());
+        int[] target = new int[M];
+        result = new int[M];
+
+        for (int i = 0; i < M; i++) {
+            target[i] = Integer.parseInt(st.nextToken());
+        }
+        
+        Arrays.sort(ary);
+
+        for (int i = 0; i < target.length; i++) {
+            binarySearch(ary, target[i], i);
+        }
+
+        for (int i = 0; i < result.length; i++) {
+            bw.write(result[i] + " ");
+        }
+        bw.flush();
+        bw.close(); 
+    }
+
+
+    private static void binarySearch(int[] ary , int target, int number){
+        int left = 0;
+        int right = ary.length - 1;
+        int mid = (left + right) / 2;
+        int cnt = 0;
+
+        while(left <= right){
+            mid = (left + right) / 2;
+            
+            if(ary[mid] == target){
+                cnt ++;
+                cnt += (upperBound(ary, target, mid) - mid);
+                cnt += (mid - lowerBound(ary, target, mid));
+                 break;
+            }
+            else if (ary[mid] > target) {
+                right = mid - 1;
+            }else{
+                left = mid + 1;
+            }
+        }
+        result[number] = cnt;
+    }
+
+    private static int lowerBound(int[] ary , int target, int right){
+        int left = 0;
+        int mid = (left + right) / 2;
+
+        while(left <= right){
+            mid = (left + right) / 2;
+            
+            if (ary[mid] >= target) {
+                right = mid - 1;
+            }else{
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+
+    private static int upperBound(int[] ary , int target, int left){
+        int right = ary.length - 1;
+        int mid = (left + right) / 2;
+
+        while(left <= right){
+            mid = (left + right) / 2;
+            
+            if (ary[mid] > target) {
+                right = mid - 1;
+            }else{
+                left = mid + 1;
+            }
+        }
+
+        return right;
+    }
+}
+
+
+```

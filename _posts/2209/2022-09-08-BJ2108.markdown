@@ -1,0 +1,86 @@
+---
+layout: post
+title: 통계학
+date: 2022-09-08 18:54:23 +0900
+categories : BAEKJOON 
+---
+# 통계학
+
+> https://www.acmicpc.net/problem/2108
+
+산술평균, 중간값, 범위의 경우에는 문제가 되지 않지만 <br>
+최빈값의 경우 '여러 개 있을 때에는 최빈값 중 두 번째로 작은 값을 출력한다.' 라는 문구가 있어서 <br>
+주의가 필요하다. 최빈값 개수의 경우 0개로만 이루어질 수가 있기 떄문에 -1로 설정하여 카운트를 해줘야 <br>
+문제없이 풀 수가 있다.
+
+
+
+This is code
+```java
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.*;
+import java.io.IOException;
+
+public class Main {
+
+    static int[] result;
+
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        int N = Integer.parseInt(br.readLine());
+        int[] ary = new int[N];
+        double sum = 0;
+
+
+        for (int i = 0; i < N; i++) {
+            ary[i] = Integer.parseInt(br.readLine());
+            sum += ary[i];
+        }
+
+        Arrays.sort(ary);
+
+        int cnt = 0;
+        int mode = ary[0];
+        int maxCnt = -1;
+        boolean chk = true;
+
+        for (int i = 0; i < ary.length - 1; i++) {
+            if (ary[i] == ary [i + 1]) {
+                cnt++;
+            }else{
+                cnt = 0;
+            }
+            if (maxCnt < cnt) {
+                maxCnt = cnt;
+                chk = true;
+                mode = ary[i];
+            }else if(maxCnt == cnt && chk == true){
+                chk = false;
+                mode = ary[i];
+            }
+        }
+
+
+        bw.write(String.valueOf(Math.round(sum / N)) );
+        bw.newLine();
+        bw.write(String.valueOf(ary[(ary.length - 1) / 2]) );
+        bw.newLine();
+        bw.write(String.valueOf(mode) );
+        bw.newLine();
+        bw.write(String.valueOf(ary[ary.length - 1] - ary[0]) );
+        
+        bw.flush();
+        bw.close();
+       
+    }
+}
+
+
+```

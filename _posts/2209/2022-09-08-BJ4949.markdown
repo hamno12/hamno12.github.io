@@ -1,0 +1,83 @@
+---
+layout: post
+title: 균형잡힌 세상
+date: 2022-09-08 18:51:23 +0900
+categories : BAEKJOON 
+---
+# 균형잡힌 세상
+
+> https://www.acmicpc.net/problem/4949
+
+괄호 문제랑 비슷하지만 괄호 문제의 경우 스택을 사용하여 해결하지 않아 <br>
+이 문제는 스택을 사용하여 해결이 가능한 문제였다,<br>
+스택에 쌓을 때는 '(' 나 '[' 상관이 없지만 ')' 만났을 경우 스택에서 peek한 정보가 아니면 '(' <br>
+짝이 맞지 않게 된다. ']' 의 경우도 같다.<br>
+괄호의 경우 "YES" "NO" 였지만 이 문제에서는 "yes" "no"이다.
+
+
+
+This is code
+```java
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.*;
+import java.io.IOException;
+
+public class Main {
+
+    static int[] result;
+
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        
+        Stack<Character> stack = new Stack<>();
+        String str;
+
+        boolean tmp = true;
+
+        while(true){
+            str = br.readLine();
+            if (".".equals(str)) {
+                break;
+            }else{
+                stack.clear();
+                tmp = true;
+                for (int i = 0; i < str.length(); i++) {
+                    if (str.charAt(i) == '(' || str.charAt(i) == '[') {
+                        stack.push(str.charAt(i));
+                    }else if(str.charAt(i) == ')'){
+                        if (stack.empty() || stack.peek() != '('  ) {
+                            tmp = false;
+                            break;
+                        }else{
+                            stack.pop();
+                        }
+                    }else if(str.charAt(i) == ']'){
+                        if (stack.empty() || stack.peek() != '['  ) {
+                            tmp = false;
+                            break;
+                        }else{
+                            stack.pop();
+                        }
+                    }else if(str.charAt(i) == '.'){
+                        break;
+                    }
+                }
+                if (stack.empty() && tmp) {
+                    System.out.println("yes");
+                }else{
+                    System.out.println("no");
+                }
+            }
+
+        }
+       
+    }
+}
+
+
+```
