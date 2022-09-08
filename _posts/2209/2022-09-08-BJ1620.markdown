@@ -8,12 +8,12 @@ categories : BAEKJOON
 
 > https://www.acmicpc.net/problem/1620
 
-LinkedHashMap를 사용하여 순서를 정렬하고 
-map.keySet().toArray를 사용하여 name을 출력할려고 하였지만 
-시관초과가 나와서 name 배열을 만들어서 출력을 하였다.
-반복문마다 인스턴스를 배열을 만드는 것이 원인으로 보인다.
+LinkedHashMap를 사용하여 순서를 정렬하고 <br>
+map.keySet().toArray를 사용하여 name을 출력할려고 하였지만 <br>
+시관초과가 나와서 name 배열을 만들어서 출력을 하였다.<br>
+반복문마다 인스턴스를 배열을 만드는 것이 원인으로 보인다.<br>
 
-
+<br>
 
 
 This is code
