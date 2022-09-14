@@ -1,0 +1,62 @@
+---
+layout: post
+title: 계단 오르기
+date: 2022-09-14 23:011:23 +0900
+categories : BAEKJOON 
+---
+# 계단 오르기
+
+> https://www.acmicpc.net/problem/2579
+
+
+
+
+This is code
+```java
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.*;
+import java.io.IOException;
+
+public class Main {
+
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+
+        int N = Integer.parseInt(br.readLine());
+        int[] ary = new int[N];
+        int[] sum = new int[N];
+
+        for (int i = 0; i < ary.length; i++) {
+            ary[i] = Integer.parseInt(br.readLine());
+        }
+
+        sum[0] = ary[0];
+        if (N >= 2) {
+            sum[1] = ary[0] + ary[1];
+        }
+        if (N >= 3) {
+            sum[2] = Math.max(ary[0] + ary[2], ary[1] + ary[2])  ;
+        }      
+        for(int i = 3; i < N; i++)
+        {
+            sum[i] = Math.max(sum[i - 2] + ary[i], sum[i - 3] + ary[i - 1] + ary[i]);
+        }
+
+        bw.write(String.valueOf(sum[N - 1]));
+
+        bw.flush();
+        bw.close();
+       
+    }
+
+}
+
+
+```

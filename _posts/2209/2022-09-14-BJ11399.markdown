@@ -1,0 +1,96 @@
+---
+layout: post
+title: ATM
+date: 2022-09-14 23:06:23 +0900
+categories : BAEKJOON 
+---
+# ATM
+
+> https://www.acmicpc.net/problem/11399
+
+
+
+
+This is code
+```java
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.*;
+import java.io.IOException;
+
+public class Main {
+
+    static int[] tmp;
+
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        int N = Integer.parseInt(br.readLine());
+        String tmp = br.readLine();
+        int cnt = 0;
+        int sum = 0;
+
+        int[] ary = new int[N];
+
+        for (int i = 0; i < N; i++) {
+            ary[i] = Integer.parseInt(tmp.split(" ")[i] );
+        }
+
+        Array(ary);
+        //Arrays.sort(ary);
+
+        for (int i = 0; i < ary.length; i++) {
+            cnt += ary[i];
+            sum += cnt; 
+        }
+
+        bw.write(String.valueOf(sum));
+
+        bw.flush();
+        bw.close();
+       
+    }
+
+    static void Array(int[] ary){
+        tmp = new int[ary.length];
+
+        mergeSort(0, ary.length - 1, ary);
+
+    }
+
+    static void mergeSort(int left, int right, int[] ary){
+
+        if (left < right) {
+            int mid = (left + right) / 2;
+            int p = left;
+            int q = mid + 1;
+            
+            int idx = p;
+            
+            mergeSort(left, mid, ary);
+            mergeSort(mid + 1, right, ary);
+
+            while(p <= mid || q <= right){
+                if(q > right || (p <= mid && ary[p] < ary[q]) ){
+                    tmp[idx++] = ary[p++];
+                }else{
+                    tmp[idx++] = ary[q++];
+                }
+            }
+
+            for (int i = left; i <= right; i++) {
+                ary[i] = tmp[i];
+            }
+
+        }
+    }
+
+}
+
+
+```
